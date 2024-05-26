@@ -64,8 +64,8 @@ void main(List<String> args) {
     final startTime = DateTime.now();
     final parseResult = BNFParser().call(byteLines.codeUnits);
     final result = FirstFollow().call(
-      parseResult.productions,
-      parseResult.startSymbol.lexeme,
+      parseResult.productionsSanitized,
+      startSymbol: parseResult.startSymbol.lexeme,
     );
     print(
       'Finished in ${DateTime.now().difference(startTime).inMicroseconds} '

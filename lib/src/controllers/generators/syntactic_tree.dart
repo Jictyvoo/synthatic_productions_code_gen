@@ -103,7 +103,7 @@ mixin SyntacticTreeGenerator {
     final headerDefinition = _genHeaderInfo(grammar);
 
     final classList = <ClassDefinition>[];
-    for (final entry in grammar.productions.entries) {
+    for (final entry in grammar.productionsSanitized.entries) {
       final className = _sanitizeProductionName(entry.key);
       final shouldCreateHelperClasses = entry.value.length != 1 &&
           !(entry.value.length == 2 && entry.value.last.contains(Token.empty));

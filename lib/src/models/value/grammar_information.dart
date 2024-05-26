@@ -1,3 +1,4 @@
+import 'package:thenafter_dart/src/util/helpers/string_helper.dart';
 import 'package:thenafter_dart/src/util/types_util.dart';
 
 import 'token.dart';
@@ -44,6 +45,39 @@ class GrammarInformation {
         name = name ?? 'Thenafter: Loaded.grm',
         version = version ?? 'v0.0.1',
         about = about ?? 'Generated with the help of Thenafter';
+
+  Token _sanitizeToken(
+    final Token token,
+  ) {
+    if (token.tokenType != TokenType.variableTerminal) {
+      return token;
+    }
+    final toReplace = extraDefinitions[token.lexeme] ?? '';
+    if (toReplace.isNotEmpty && !StringHelper.isRegex(toReplace)) {
+      return token.copyWith(
+        lexeme: "'$toReplace'",
+        tokenType: TokenType.terminal,
+      );
+    }
+
+    return token;
+  }
+
+  /// Returns a sanitized version of the productions map.
+  ///
+  /// Example usage:
+  /// ```dart
+  /// final sanitizedMap = instance.productionsSanitized;
+  /// ```
+  ProductionsMap get productionsSanitized {
+    return {
+      for (final entry in productions.entries)
+        entry.key: [
+          for (final subList in entry.value)
+            [for (final token in subList) _sanitizeToken(token)]
+        ]
+    };
+  }
 
   @override
   String toString() {

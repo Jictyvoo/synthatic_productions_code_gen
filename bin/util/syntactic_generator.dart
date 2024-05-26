@@ -19,7 +19,7 @@ void generateSyntacticFile(
   };
   generator.buildNeededImports(fileBuffer);
   generator.buildTypeDeclarations(fileBuffer);
-  for (final currentProduction in parseResult.productions.entries) {
+  for (final currentProduction in parseResult.productionsSanitized.entries) {
     fileBuffer.writeln(
       generator.buildFunction(
         currentProduction.key,

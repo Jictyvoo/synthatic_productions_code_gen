@@ -45,9 +45,9 @@ class FirstFollow extends AbstractAnalyzer with FirstAnalyzer, FollowAnalyzer {
   /// With a given [ProductionsMap] and startSymbol, the algorithm starts to
   /// calculate the first and follow sets
   FirstFollowResult call(
-    ProductionsMap productions, [
+    ProductionsMap productions, {
     String startSymbol = '',
-  ]) {
+  }) {
     firstList.clear();
     followList.clear();
     followList[startSymbol] = <String>{"'\$'"};
