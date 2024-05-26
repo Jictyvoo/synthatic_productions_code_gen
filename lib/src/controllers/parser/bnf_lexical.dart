@@ -119,7 +119,7 @@ class BNFLexical {
       _lexicalInformation.addCharacter(character);
     } else {
       tokenList.add(
-        _lexicalInformation.generateToken(TokenType.genericTerminal),
+        _lexicalInformation.generateToken(TokenType.variableTerminal),
       );
       _discoverState(character);
     }

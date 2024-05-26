@@ -85,7 +85,7 @@ mixin SyntacticTreeGenerator {
               ? ComplexType.reference
               : ComplexType.none,
         );
-      } else if (token.tokenType == TokenType.genericTerminal &&
+      } else if (token.tokenType == TokenType.variableTerminal &&
           extraDefinitions.keys.contains(token.lexeme)) {
         fieldName =
             '$fieldName Value ${_numericTerminal(token.lexeme, repeatedTerminals)}';

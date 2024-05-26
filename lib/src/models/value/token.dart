@@ -5,7 +5,7 @@ enum TokenType {
 
   /// Represents a generic terminal symbol. It is a symbol that can be
   /// replaced with a valid symbol defined in a regex
-  genericTerminal,
+  variableTerminal,
 
   /// Currently, regex expressions parsed in input are not validate or
   /// subdivided. So this tokenType informs all

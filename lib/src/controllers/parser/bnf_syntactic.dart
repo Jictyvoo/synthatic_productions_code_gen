@@ -70,7 +70,7 @@ class BNFSyntactic {
     final subProductions = productionList.last;
     if (token.tokenType == TokenType.operator) {
       // Check if it's another attribution and then call another state
-      if (previousToken.tokenType == TokenType.genericTerminal &&
+      if (previousToken.tokenType == TokenType.variableTerminal &&
           token.lexeme == '=') {
         subProductions.removeLast();
         _discoverState(previousToken, token);

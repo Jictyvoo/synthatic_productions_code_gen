@@ -51,7 +51,7 @@ mixin FirstAnalyzer on AbstractAnalyzer {
           // if during the loop it gets a terminal symbol, add it to first set
           final token = production[count];
           firstSet.add(
-            token.tokenType != TokenType.genericTerminal
+            token.tokenType != TokenType.variableTerminal
                 ? sanitizeTerminal(token.lexeme)
                 : token.lexeme,
           );
