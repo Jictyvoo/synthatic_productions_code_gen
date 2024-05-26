@@ -1,17 +1,17 @@
 name: thenafter_dart
 description: Parses the BNF .grm file and produces the first and follow sets.
   It can be used also to generate first and follow sets in a set of different languages.
-version: 0.6.0
+version: 0.7.0
 repository: https://github.com/Jictyvoo/thenafter-dart
 
 environment:
-  sdk: '>=2.16.2 <3.0.0'
+  sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
   args: ^2.4.0
 
 dev_dependencies:
-  lints: ^2.0.1
+  lints: ^4.0.0
   test: ^1.24.2
 
 # For information on the generic Dart part of this file, see the
