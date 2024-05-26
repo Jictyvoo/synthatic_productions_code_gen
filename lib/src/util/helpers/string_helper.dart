@@ -96,4 +96,15 @@ abstract class StringHelper {
   static bool isCRLF(int first, int second) {
     return String.fromCharCodes([first, second]) == '\r\n';
   }
+
+  static bool isRegex(String toReplace) {
+    if (toReplace.length == 1) {
+      return false;
+    }
+    // Patterns to identify as regex
+    final regexPattern = RegExp(r'[\{\}\+\*\-\.\#\[\]\(\)\?\:\|\^\$]');
+
+    // Check if the string contains any of the regex symbols
+    return regexPattern.hasMatch(toReplace);
+  }
 }

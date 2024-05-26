@@ -13,6 +13,21 @@ void main() {
 
   testRemoveQuotes();
   test('test if detect whitespace correctly', testCheckWhitespace);
+  group('StringHelper.isNotRegex', () {
+    test('should identify regex-like strings correctly', () {
+      expect(StringHelper.isRegex("{Alphanumeric} + ['_"), isTrue);
+      expect(StringHelper.isRegex('{#32..#126} - {#34}'), isTrue);
+      expect(StringHelper.isRegex("{Digit}+('.'{Digit}+)"), isTrue);
+      expect(StringHelper.isRegex("'\"'{simbolo}'\"'"), isTrue);
+      expect(StringHelper.isRegex("'\"'{simbolo}*'\"'"), isTrue);
+      expect(StringHelper.isRegex('{Letter}{corpoidentificador}*'), isTrue);
+      /*expect(StringHelper.isNotRegex('This is a normal string.'), isTrue);
+      expect(
+        StringHelper.isNotRegex('Just text without special regex symbols'),
+        isTrue,
+      );*/
+    });
+  });
 }
 
 void testCheckWhitespace() {

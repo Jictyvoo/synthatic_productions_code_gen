@@ -59,6 +59,22 @@ class Token {
       : lineNumber = 0,
         columnNumber = 0;
 
+  /// Creates a copy of this [Token] but with the given fields replaced with
+  /// the new values.
+  Token copyWith({
+    String? lexeme,
+    int? lineNumber,
+    int? columnNumber,
+    TokenType? tokenType,
+  }) {
+    return Token(
+      lexeme ?? this.lexeme,
+      lineNumber ?? this.lineNumber,
+      columnNumber ?? this.columnNumber,
+      tokenType ?? this.tokenType,
+    );
+  }
+
   @override
   String toString() {
     return '$lineNumber:$columnNumber `$lexeme` <${tokenType.name}>';
